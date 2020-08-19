@@ -101,3 +101,17 @@ describe("fail()", () => {
     ).toBe(19);
   });
 });
+
+describe("get()", () => {
+  it("returns the name unchanged when enhancement is 0", () => {
+    expect(
+      enhancer.get({ name: "Sword", durability: 50, enhancement: 0 }).name
+    ).toBe("Sword");
+  });
+
+  it("returns the name with enhancement", () => {
+    expect(
+      enhancer.get({ name: "Sword", durability: 50, enhancement: 15 }).name
+    ).toBe("[+15] Sword");
+  });
+});
